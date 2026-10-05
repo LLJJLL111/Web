@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Charity Events | Home</title>
+    <meta name="description" content="Browse upcoming charity fun runs, gala dinners, auctions and concerts in your city and support a cause that matters.">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+
+    <!-- ================= Header and main navigation (on every page) ======== -->
+    <header class="site-header">
+        <div class="container site-header__inner">
+            <a class="brand" href="index.html">
+                <span class="brand__mark" aria-hidden="true">CE</span>
+                <span class="brand__text">
+                    Charity Events
+                    <small>Supporting our community</small>
+                </span>
+            </a>
+
+            <nav class="nav" aria-label="Main navigation">
+                <ul class="nav__list">
+                    <li><a class="nav__link is-active" href="index.html" aria-current="page">Home</a></li>
+                    <li><a class="nav__link" href="search.html">Search events</a></li>
+                    <li><a class="nav__link" href="index.html#about">About us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main">
+
+        <!-- ================= Hero: hard-coded welcoming content =========== -->
+        <section class="hero">
+            <div class="container hero__inner">
+                <p class="hero__eyebrow">Welcome to Charity Events</p>
+                <h1>Every ticket, every kilometre, every dollar &mdash; for a cause that matters.</h1>
+                <p class="hero__lead">
+                    We connect the charities of our city with people who want to help. Browse the
+                    fun runs, gala dinners, silent auctions and concerts happening near you, then
+                    join the one that speaks to you.
+                </p>
+                <div class="hero__actions">
+                    <a class="btn btn--primary btn--large" href="search.html">Find an event near you</a>
+                    <a class="btn btn--ghost btn--large" href="#upcoming">See what&rsquo;s on</a>
+                </div>
+                <ul class="hero__stats">
+                    <li><strong>10</strong><span>charity events listed</span></li>
+                    <li><strong>4</strong><span>local organisations</span></li>
+                    <li><strong>$400k</strong><span>combined fundraising goals</span></li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ================= Dynamic event listing (uses the API) ========= -->
+        <section class="section" id="upcoming">
+            <div class="container">
+                <div class="section__head">
+                    <div>
+                        <h2>Upcoming charity events</h2>
+                        <p class="section__lead">
+                            This list is loaded live from the charity events API, so it always shows
+                            the current and upcoming events. Events that have finished move to the
+                            &ldquo;Recently finished&rdquo; list below, and events that are suspended for
+                            breaking the fundraising policy are never displayed at all.
+                        </p>
+                    </div>
+                    <a class="btn btn--ghost btn--small" href="search.html">Search all events</a>
+                </div>
+
+                <!-- The API result summary or an error message is written here -->
+                <div id="status-message" class="status" role="status" aria-live="polite"></div>
+
+                <!-- The event cards are inserted here by home.js -->
+                <div id="events-container" class="event-grid" aria-busy="true"></div>
+            </div>
+        </section>
+
+        <!-- ================= Recently finished events =====================
+             Past events are shown in their own section rather than hidden, so
+             that an event which has already taken place is clearly labelled as
+             finished. home.js unhides this section only when there are
+             finished events to show. -->
+        <section class="section section--tight" id="finished" hidden>
+            <div class="container">
+                <div class="section__head">
+                    <div>
+                        <h2>Recently finished</h2>
+                        <p class="section__lead">
+                            These events have already taken place. Each one is marked
+                            <strong>Finished</strong> automatically, from its end date compared with
+                            today&rsquo;s date &mdash; the state is calculated, never stored by hand.
+                        </p>
+                    </div>
+                    <a class="btn btn--ghost btn--small" href="search.html?state=past">See all finished events</a>
+                </div>
+
+                <div id="finished-container" class="event-grid" aria-busy="true"></div>
+            </div>
+        </section>
+
+        <!-- ================= Static content about the organisation ======== -->
+        <section class="section section--muted" id="about">
+            <div class="container">
+                <div class="section__head">
+                    <div>
+                        <h2>About us</h2>
+                        <p class="section__lead">Who we are and how the money is used.</p>
+                    </div>
+                </div>
+
+                <div class="about">
+                    <div class="panel">
+                        <h3>Our mission</h3>
+                        <p>
+                            Charity Events is a not-for-profit community initiative. Our mission is
+                            to make it effortless for people to find, trust and join charity events
+                            in their own city, and to make sure that every dollar raised reaches the
+                            cause it was given for.
+                        </p>
+                        <p>
+                            We publish each event with its full description, its fundraising goal and
+                            the amount raised so far, so you can see exactly what your support
+                            achieves. Organisations that do not meet our fundraising policy are
+                            suspended and removed from the listings.
+                        </p>
+                    </div>
+
+                    <div class="panel panel--facts">
+                        <h3>Contact details</h3>
+                        <dl class="facts">
+                            <dt>Address</dt>
+                            <dd>Level 2, 118 Harbour Street<br>Sydney NSW 2000</dd>
+                            <dt>Phone</dt>
+                            <dd><a href="tel:+61290001000">02 9000 1000</a></dd>
+                            <dt>Email</dt>
+                            <dd><a href="mailto:hello@charityevents.org.au">hello@charityevents.org.au</a></dd>
+                            <dt>Office hours</dt>
+                            <dd>Monday to Friday, 9:00 am &ndash; 5:00 pm</dd>
+                        </dl>
+                        <a class="btn btn--primary btn--block" href="search.html">Browse events</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ================= Footer =========================================== -->
+    <footer class="site-footer">
+        <div class="container site-footer__inner">
+            <p>&copy; 2026 Charity Events. A fictional community website built for PROG2002 Assessment 2.</p>
+            <nav aria-label="Footer navigation">
+                <ul class="nav__list nav__list--footer">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="search.html">Search events</a></li>
+                    <li><a href="index.html#about">About us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </footer>
+
+    <!-- Shared code first, then the script for this page -->
+    <script src="js/format.js"></script>
+    <script src="js/components.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/home.js"></script>
+</body>
+</html>

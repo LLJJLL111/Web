@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Search charity events | Charity Events</title>
+    <meta name="description" content="Search upcoming charity events by date, location, category or keyword.">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+
+    <!-- ================= Header and main navigation (on every page) ======== -->
+    <header class="site-header">
+        <div class="container site-header__inner">
+            <a class="brand" href="index.html">
+                <span class="brand__mark" aria-hidden="true">CE</span>
+                <span class="brand__text">
+                    Charity Events
+                    <small>Supporting our community</small>
+                </span>
+            </a>
+
+            <nav class="nav" aria-label="Main navigation">
+                <ul class="nav__list">
+                    <li><a class="nav__link" href="index.html">Home</a></li>
+                    <li><a class="nav__link is-active" href="search.html" aria-current="page">Search events</a></li>
+                    <li><a class="nav__link" href="index.html#about">About us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main">
+        <section class="page-head">
+            <div class="container">
+                <h1>Search charity events</h1>
+                <p class="page-head__lead">
+                    Choose one or several criteria below. Leave anything you are not interested in
+                    empty and the results will include all of the matching events.
+                </p>
+            </div>
+        </section>
+
+        <!-- ================= The filtering form =========================== -->
+        <section class="section section--tight">
+            <div class="container">
+                <form id="search-form" class="filters" novalidate>
+                    <div class="filters__grid">
+                        <div class="field">
+                            <label for="status">Show</label>
+                            <select id="status" name="state">
+                                <option value="upcoming">Upcoming and current events</option>
+                                <option value="past">Finished events (past)</option>
+                                <option value="all">All events, past and upcoming</option>
+                            </select>
+                        </div>
+
+                        <div class="field">
+                            <label for="date-from">From date</label>
+                            <input type="date" id="date-from" name="from">
+                        </div>
+
+                        <div class="field">
+                            <label for="date-to">To date</label>
+                            <input type="date" id="date-to" name="to">
+                        </div>
+
+                        <div class="field">
+                            <label for="location">Location</label>
+                            <select id="location" name="city">
+                                <option value="">All locations</option>
+                            </select>
+                        </div>
+
+                        <div class="field">
+                            <label for="category">Event category</label>
+                            <select id="category" name="category">
+                                <option value="">All categories</option>
+                            </select>
+                        </div>
+
+                        <div class="field">
+                            <label for="keyword">Keyword</label>
+                            <input type="search" id="keyword" name="keyword"
+                                   placeholder="e.g. run, gala, auction" maxlength="100">
+                        </div>
+                    </div>
+
+                    <div class="filters__actions">
+                        <button type="submit" class="btn btn--primary">Search events</button>
+                        <button type="button" class="btn btn--ghost" id="clear-filters">Clear Filters</button>
+
+                        <div class="filters__sort">
+                            <label for="sort">Sort by</label>
+                            <select id="sort" name="sort">
+                                <option value="soonest">Soonest first</option>
+                                <option value="latest">Latest first</option>
+                                <option value="price_low">Ticket price: low to high</option>
+                                <option value="price_high">Ticket price: high to low</option>
+                                <option value="progress">Closest to its goal</option>
+                                <option value="title">Event name (A&ndash;Z)</option>
+                            </select>
+                        </div>
+                    </div>
+                </form>
+
+                <!-- Messages about validation, errors and the number of results
+                     are created here with DOM methods by search.js -->
+                <div id="message-area" class="status" role="status" aria-live="polite"></div>
+            </div>
+        </section>
+
+        <!-- ================= Results ====================================== -->
+        <section class="section section--tight">
+            <div class="container">
+                <div id="results-summary" class="results-summary" hidden></div>
+                <div id="results-container" class="event-grid" aria-busy="false"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container site-footer__inner">
+            <p>&copy; 2026 Charity Events. A fictional community website built for PROG2002 Assessment 2.</p>
+            <nav aria-label="Footer navigation">
+                <ul class="nav__list nav__list--footer">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="search.html">Search events</a></li>
+                    <li><a href="index.html#about">About us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </footer>
+
+    <script src="js/format.js"></script>
+    <script src="js/components.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/search.js"></script>
+</body>
+</html>

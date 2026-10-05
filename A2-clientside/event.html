@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Event details | Charity Events</title>
+    <meta name="description" content="Full details of a charity event: description, schedule, venue, ticket price and fundraising progress.">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+
+    <!-- ================= Header and main navigation (on every page) ======== -->
+    <header class="site-header">
+        <div class="container site-header__inner">
+            <a class="brand" href="index.html">
+                <span class="brand__mark" aria-hidden="true">CE</span>
+                <span class="brand__text">
+                    Charity Events
+                    <small>Supporting our community</small>
+                </span>
+            </a>
+
+            <nav class="nav" aria-label="Main navigation">
+                <ul class="nav__list">
+                    <li><a class="nav__link" href="index.html">Home</a></li>
+                    <li><a class="nav__link" href="search.html">Search events</a></li>
+                    <li><a class="nav__link" href="index.html#about">About us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main">
+        <div class="section section--tight">
+            <div class="container">
+                <!-- The requested event is rendered here by event.js.
+                     The event id is taken from the URL query string,
+                     for example:  event.html?id=3 -->
+                <div id="event-container" aria-busy="true"></div>
+            </div>
+        </div>
+    </main>
+
+    <!-- ================= Register dialog ================================== -->
+    <!-- Hidden until the Register button is pressed; shown by event.js -->
+    <div class="modal" id="register-modal" hidden>
+        <div class="modal__backdrop" data-close-modal></div>
+        <div class="modal__dialog" role="dialog" aria-modal="true"
+             aria-labelledby="register-modal-title" aria-describedby="register-modal-body">
+            <h2 id="register-modal-title">Register for this event</h2>
+            <p id="register-modal-body">This feature is currently under construction.</p>
+            <div class="modal__actions">
+                <button type="button" class="btn btn--primary" id="register-modal-close">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <div class="container site-footer__inner">
+            <p>&copy; 2026 Charity Events. A fictional community website built for PROG2002 Assessment 2.</p>
+            <nav aria-label="Footer navigation">
+                <ul class="nav__list nav__list--footer">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="search.html">Search events</a></li>
+                    <li><a href="index.html#about">About us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </footer>
+
+    <script src="js/format.js"></script>
+    <script src="js/components.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/event.js"></script>
+</body>
+</html>
