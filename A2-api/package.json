@@ -1,0 +1,22 @@
+{
+  "name": "charityevents-api",
+  "version": "1.0.0",
+  "description": "PROG2002 Web Development II - Assessment 2: charity events website (Part 1: database layer, Part 2: RESTful API)",
+  "main": "event_db.js",
+  "scripts": {
+    "db:test": "node event_db.js",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "PROG2002",
+    "charity-events",
+    "mysql",
+    "express"
+  ],
+  "author": "Student",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.2",
+    "mysql2": "^3.11.3"
+  }
+}
